@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lesotho Hub - Tips</title>
+    <title>Lesotho Hub</title>
     <style type="text/css">
         html, body {
             height: 100%;
             margin: 0;
-            padding: 10px;
+            padding: 15px;
+            box-sizing: border-box;
         }
         body {
             background-color: aliceblue;
             display: flex;
             flex-direction: column;
-            font-family: Arial, sans-serif;
-        } 
-        .wrapper {
-            border: 5px;
-            background-color:#71A905;
-            padding: 25px;
-            height: 15px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        .ali {
+
+        /* Header + Navigation */
+        .wrapper {
+            background-color: #71A905;
+            padding: 25px;
+            height: auto; /* FIX: remove squished height */
+        }
+        .head {
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        nav ul.ali {
             display: flex;
             justify-content: space-around;
             gap: 40px;
@@ -28,151 +34,234 @@
             padding: 0;
             font-weight: bold;
             list-style: none;
-            margin-left: 450px;
         }
-        .ali a{
-                text-decoration: none;
-            }
+        .ali a {
+            text-decoration: none;
+            color: inherit;
+        }
         .ali li {
             cursor: pointer;
         }
         .ali li:hover {
-            text-decoration: none;
+            text-decoration: underline;
         }
-        .head {
+        .img {
+            margin-top: -46px;
+        }
+
+        /* Product cards */
+        .products {
             text-align: center;
             background-color: antiquewhite;
             font-weight: bold;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 10px;
         }
-        .img {
-            margin-top: -43px;
-            margin-left: -25px ;
-        }
-
-        
-        .tips-container {
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px;
-            padding: 40px;
-            max-width: 1000px;
-            margin: auto; 
-        }
-        .tip:hover{
-            transform: scale(1.05) translateY(-11px);
-        }
-        .tip {
-            background: white;
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 9px;
         }
-        .tip img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover; 
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        .tip h2 {
-            color: #71A905;
-            margin-bottom: 10px;
-        }
-        .tip p {
-            font-size: 14px;
-            color: #333;
-        }
-
-        @media screen and (max-width: 600px) {
-         .ali {
-             flex-direction: column;
-             gap: 10px;
-             text-align: center;
-            }
-
-          .wrapper {
+        .pro {
+            display: flex;
             flex-direction: column;
             align-items: center;
-            }
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            width: 240px;
+        }
+        .pro:hover {
+            transform: scale(1.05) translateY(-11px);
+        }
+        .pro img {
+            max-width: 100%;
+            height: auto; /* FIX: responsive images */
+            border-radius: 8px;
+        }
+        .buyers {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #71A905;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .buyers:hover {
+            background-color: #5a8804;
+        }
 
-           .tips-container {
-              grid-template-columns: 1fr;
-              padding: 20px;
-            }
-
-            .footer {
-               flex-direction: column;
-               text-align: center;
-               gap: 10px;
-            }
-       }
-
-
-        .footer {
+        /* Plans */
+        .plans {
             display: flex;
-            margin-top: auto; 
-            background-color:#71A905;
+            justify-content: center;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .Explore {
+            padding: 10px 20px;
+            background-color: #71A905;
+            font-weight: bold;
+            border-radius: 6px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Second section */
+        .con2 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px auto;
+        }
+        .con2 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .utc {
+            display: block;
+            margin: 10px auto 0;
+            padding: 10px;
+            background-color: #71A905;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Divider line */
+        .decor-line {
+            border: none;
+            border-top: 3px solid #71A905;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        /* Footer */
+        footer ul.footer {
+            display: flex;
+            margin-top: auto;
+            background-color: #71A905;
             color: black;
             justify-content: space-around;
             padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 97.8%;
-            margin: 0;
-        }   
-    </style>       
-</head>  
+            list-style: none;
+            flex-wrap: wrap; /* FIX: no scrollbar */
+            width: 100%;
+        }
+        footer a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Responsive fixes */
+        @media screen and (max-width: 768px) {
+            nav ul.ali {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pro {
+                width: 90%; /* take phone width */
+            }
+            .con2 {
+                flex-direction: column;
+                align-items: center;
+            }
+            footer ul.footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
 
 <body>
     <div class="head"><h1>Lesotho Agricultural Hub</h1></div>
     <div class="wrapper">
-        <ul class="ali">
-            <li><a href="Farming Website.html">Home</a></li>
-            <li><a href="Business page.html">Business page</a></li>
-            <li><a href="about us.html">about us</a></li>
-            <li><a href="contact us.html">contact us</a></li>
-            <li><a href="Tips.html">Tips</a></li>
-        </ul>
+        <nav>
+            <ul class="ali">
+                <li><a href="Farming Website.html">Home</a></li>
+                <li><a href="Business page.html">Business page</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+                <li><a href="Tips.html">Tips</a></li>
+            </ul>
+        </nav>
         <div class="img"><img src="logo.jpg" height="65px"></div>
     </div>
 
-    <div class="tips-container">
-    
-        <div class="tip">
-            <img src="tomato.jpg" alt="Planting Crops">
-            <h2>Planting Season</h2>
-            <p>Always prepare your soil well before planting. A healthy soil guarantees a healthy harvest.</p>
+    <div class="products"><h3>Our Products</h3></div>
+    <div class="content">
+        <div class="pro">
+            <img src="cock.jpg" alt="Poultry">
+            <button class="buyers">Order Poultry</button>
         </div>
-        
-        <div class="tip">
-            <img src="water.jpg" alt="Watering Crops">
-            <h2>Watering</h2>
-            <p>Water your crops early in the morning or late afternoon to reduce evaporation.</p>
+        <div class="pro">
+            <img src="potato.jpg" alt="Crops">
+            <button class="buyers">Order Crops</button>
         </div>
-        
-        <div class="tip">
-            <img src="crain.jpg" alt="Harvesting">
-            <h2>Harvesting</h2>
-            <p>Harvest crops at the right time to maintain freshness and maximize profits.</p>
+        <div class="pro">
+            <img src="sell.jpg" alt="Organics">
+            <button class="buyers">Order Organics</button>
         </div>
-        
-        <div class="tip">
-            <img src="market.jpg" alt="Market">
-            <h2>Market Access</h2>
-            <p>Research your local market needs before planting. Grow what sells best.</p>
+        <div class="pro">
+            <img src="cattle.jpg" alt="Livestock">
+            <button class="buyers">Order Livestock</button>
+        </div>
+        <div class="pro">
+            <img src="sun.jpg" alt="Grain">
+            <button class="buyers">Order Grain</button>
         </div>
     </div>
 
+    <hr class="decor-line">
+    <div class="plans">
+        <button class="Explore">Explore Lesotho Agriculture Hub Plans</button>
+    </div>
+
+    <div class="con2">
+        <div>
+            <img src="selo.jpg" alt="Livestock Feeding">
+            <button class="utc">Livestock Feeding</button>
+        </div>
+        <div>
+            <a href="https://pin.it/SabLqlntY"><img src="feed.jpg" alt="Poultry Feeding"></a>
+            <button class="utc">Poultry Feeding</button>
+        </div>
+        <div>
+            <img src="lib.jpg" alt="Crop Rotation">
+            <button class="utc">Crop Rotation & Greenhousing</button>
+        </div>
+    </div>
+
+    <hr class="decor-line">
     <footer>
         <ul class="footer">
-            <li><b>legal links</b><br>Disclamer</li>
-            <li><b>Forums</b> <br><a href="https://www.accessagriculture.org/">accessagriculture</a></li>
-            <li><b>Email</b><br><a href="rorisangthakholi8@gmail.com">lesothohub</a></li>
-            <li><b>Our profile</b><br><a href="about us">about us</a></li>
-            <li><b>Copyright@2025</b><br>crafted by silence.org</li>
+            <li><b>Legal links</b><br>Disclaimer</li>
+            <li><b>Forums</b><br><a href="https://www.accessagriculture.org/">Access Agriculture</a></li>
+            <li><b>Email</b><br><a href="mailto:rorisangthakholi8@gmail.com">lesothohub</a></li>
+            <li><b>Our profile</b><br><a href="about us.html">About Us</a></li>
+            <li><b>Copyright ©2025</b><br>crafted by silence.org</li>
         </ul>
     </footer>
 </body>
 </html>
+
